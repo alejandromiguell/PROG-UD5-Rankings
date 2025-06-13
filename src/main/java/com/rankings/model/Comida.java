@@ -1,18 +1,18 @@
 package main.java.com.rankings.model;
-public class Restaurante {
+public class Comida {
     
     //---------------------------------------Atributos---------------------------------------
     private String nombre;
-    private String tipoCocina;
-    private String sitio;
+    private String tipoCocinado;
+    private String sabor;
     private int puntuacion; 
    //---------------------------------------Atributos---------------------------------------
 
     //---------------------------------------Constructores---------------------------------------
-    public Restaurante (String nombre, String tipoCocina, String sitio, int puntuacion) {
+    public Comida (String nombre, String tipoCocinado, String sabor, int puntuacion) {
         this.nombre = nombre;
-        this.tipoCocina = tipoCocina;
-        this.sitio = sitio;
+        this.tipoCocinado = tipoCocinado;
+        this.sabor = sabor;
         this.puntuacion = puntuacion;
     }
     
@@ -31,20 +31,20 @@ public class Restaurante {
         this.nombre = nombre;
     }
     
-    public String getTipoCocina() {
-        return tipoCocina;
+    public String gettipoCocinado() {
+        return tipoCocinado;
     }
     
-    public void setTipoCocina(String tipoCocina) {
-        this.tipoCocina = tipoCocina;
+    public void settipoCocinado(String tipoCocinado) {
+        this.tipoCocinado = tipoCocinado;
     }
     
-    public String getsitio() {
-        return sitio;
+    public String getsabor() {
+        return sabor;
     }
     
-    public void setsitio(String sitio) {
-        this.sitio = sitio;
+    public void setsabor(String sabor) {
+        this.sabor = sabor;
     }
     
     public int getPuntuacion() {
@@ -58,7 +58,7 @@ public class Restaurante {
 //---------------------------------------Getters y Setters---------------------------------------
     
    public String toString() {
-        return nombre + " - " + tipoCocina + " - " + sitio + " - " + puntuacion + " puntos";
+        return nombre + " - " + tipoCocinado + " - " + sabor + " - " + puntuacion + " puntos";
     }
 
     }
