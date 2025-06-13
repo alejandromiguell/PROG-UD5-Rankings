@@ -23,7 +23,7 @@ public class Ventana extends JFrame implements ActionListener {
     
     // Hacer la ventana
     private void hacerVentana() {
-        setTitle("Ranking de Restaurantes");
+        setTitle("Ranking de Comidas");
         setSize(400, 350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -36,10 +36,10 @@ public class Ventana extends JFrame implements ActionListener {
         titulo.setFont(new Font("Arial", Font.BOLD, 16));
         add(titulo);
         
-        botonAnadir = new JButton("1. Añadir Restaurante");
-        botonEditar = new JButton("2. Editar Restaurante");
-        botonMostrar = new JButton("3. Mostrar Restaurantes");
-        botonEliminar = new JButton("4. Eliminar Restaurante");
+        botonAnadir = new JButton("1. Añadir Comida");
+        botonEditar = new JButton("2. Editar Comida");
+        botonMostrar = new JButton("3. Mostrar Comidas");
+        botonEliminar = new JButton("4. Eliminar Comida");
         botonSalir = new JButton("5. Salir");
         
         botonAnadir.addActionListener(this);
@@ -58,16 +58,16 @@ public class Ventana extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botonAnadir) {
-            JOptionPane.showMessageDialog(this, "Elegiste: añadir restaurante");
+            JOptionPane.showMessageDialog(this, "Elegiste: añadir comida");
         }
         else if (e.getSource() == botonEditar) {
-            JOptionPane.showMessageDialog(this, "Elegiste: editar restaurante");
+            JOptionPane.showMessageDialog(this, "Elegiste: editar comida");
         }
         else if (e.getSource() == botonMostrar) {
-            JOptionPane.showMessageDialog(this, "Elegiste: mostrar restaurantes");
+            JOptionPane.showMessageDialog(this, "Elegiste: mostrar comidas");
         }
         else if (e.getSource() == botonEliminar) {
-            JOptionPane.showMessageDialog(this, "Elegiste: eliminar restaurante");
+            JOptionPane.showMessageDialog(this, "Elegiste: eliminar comida");
         }
         else if (e.getSource() == botonSalir) {
             int respuesta = JOptionPane.showConfirmDialog(this, 
