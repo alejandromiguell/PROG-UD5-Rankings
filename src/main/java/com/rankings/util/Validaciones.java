@@ -1,3 +1,5 @@
+// Esta clase proporciona metodos de validacion y utilidades para mostrar mensajes, errores y realizar preguntas al usuario.
+
 package main.java.com.rankings.util;
 
 import javax.swing.JOptionPane;
@@ -13,7 +15,7 @@ public class Validaciones {
         return false;
     }
     
-    // Ver si la puntuacion es correcta
+    
     public static boolean puntuacionCorrecta(int puntuacion) {
         if (puntuacion >= 1 && puntuacion <= 5) {
             return true;
@@ -21,7 +23,7 @@ public class Validaciones {
         return false;
     }
     
-    // Pasar de texto a numero
+    
     public static int textoANumero(String texto) {
         try {
             int numero = Integer.parseInt(texto);
@@ -31,7 +33,7 @@ public class Validaciones {
         }
     }
     
-    //Errores
+   
     public static void error(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
@@ -41,7 +43,7 @@ public class Validaciones {
         JOptionPane.showMessageDialog(null, mensaje);
     }
     
-    // Preguntar si o no
+  
     public static boolean preguntarSiNo(String pregunta) {
         int respuesta = JOptionPane.showConfirmDialog(null, pregunta, "Pregunta", JOptionPane.YES_NO_OPTION);
         return respuesta == JOptionPane.YES_OPTION;
