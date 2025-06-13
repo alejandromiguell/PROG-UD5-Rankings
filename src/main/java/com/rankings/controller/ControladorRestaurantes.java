@@ -2,7 +2,7 @@
 
 package main.java.com.rankings.controller;
 
-import main.java.com.rankings.model.Restaurante;
+import main.java.com.rankings.model.Comida;
 import main.java.com.rankings.util.Validaciones;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
@@ -10,31 +10,31 @@ import java.util.ArrayList;
 
 public class ControladorRestaurantes {
 
-    private ArrayList<Restaurante> restaurantes;
+    private ArrayList<Comida> comidas;
     
   
     public ControladorRestaurantes() {
-        restaurantes = new ArrayList<Restaurante>();
+        comidas = new ArrayList<Comida>();
     }
-    
 
-    public void anadirRestaurante() {
+
+    public void anadirComida() {
         try {
-            String nombre = JOptionPane.showInputDialog("Nombre del restaurante:");
+            String nombre = JOptionPane.showInputDialog("Nombre de la comida:");
             if (Validaciones.textoVacio(nombre)) {
                 Validaciones.error("El nombre no puede estar vacio");
                 return;
             }
             
-            String tipoCocina = JOptionPane.showInputDialog("Tipo de cocina:");
-            if (Validaciones.textoVacio(tipoCocina)) {
-                Validaciones.error("El tipo de cocina no puede estar vacio");
+            String tipoCocinado = JOptionPane.showInputDialog("Tipo de cocinado:");
+            if (Validaciones.textoVacio(tipoCocinado)) {
+                Validaciones.error("El tipo de cocinado no puede estar vacio");
                 return;
             }
             
-            String ubicacion = JOptionPane.showInputDialog("Ubicacion:");
-            if (Validaciones.textoVacio(ubicacion)) {
-                Validaciones.error("La ubicacion no puede estar vacia");
+            String sabor = JOptionPane.showInputDialog("Sabor:");
+            if (Validaciones.textoVacio(sabor)) {
+                Validaciones.error("El sabor no puede estar vacio");
                 return;
             }
             
@@ -51,119 +51,117 @@ public class ControladorRestaurantes {
                 return;
             }
             
-            // Crear el restaurante y añadirlo
-            Restaurante nuevoRestaurante = new Restaurante(nombre, tipoCocina, ubicacion, puntuacion);
-            restaurantes.add(nuevoRestaurante);
-            Validaciones.mensaje("Restaurante añadido correctamente!");
+            // Crear la comida y añadirla
+            Comida nuevaComida = new Comida(nombre, tipoCocinado, sabor, puntuacion);
+            comidas.add(nuevaComida);
+            Validaciones.mensaje("Comida añadida correctamente!");
             
         } catch (Exception e) {
-            Validaciones.error("Error al añadir restaurante");
+            Validaciones.error("Error al añadir comida");
         }
     }
-    
-    // Mostrar todos los restaurantes
-    public void mostrarRestaurantes() {
-        if (restaurantes.size() == 0) {
-            Validaciones.mensaje("No hay restaurantes guardados");
+
+    // Mostrar todos los comidas
+    public void mostrarComidas() {
+        if (comidas.size() == 0) {
+            Validaciones.mensaje("No hay comidas guardadas");
             return;
         }
         
     
         ordenarPorPuntuacion();
-        
-        String mensaje = "=== RANKING DE RESTAURANTES ===\n\n";
-        for (int i = 0; i < restaurantes.size(); i++) {
-            mensaje += (i + 1) + ". " + restaurantes.get(i).toString() + "\n";
+
+        String mensaje = "=== RANKING DE COMIDAS ===\n\n";
+        for (int i = 0; i < comidas.size(); i++) {
+            mensaje += (i + 1) + ". " + comidas.get(i).toString() + "\n";
         }
         
         JOptionPane.showMessageDialog(null, mensaje, "Ranking", JOptionPane.INFORMATION_MESSAGE);
     }
     
 
-    public void editarRestaurante() {
-        if (restaurantes.size() == 0) {
-            Validaciones.mensaje("No hay restaurantes para editar");
+    public void editarComida() {
+        if (comidas.size() == 0) {
+            Validaciones.mensaje("No hay comidas para editar");
             return;
         }
         
-        String lista = "Elige el restaurante a editar:\n";
-        for (int i = 0; i < restaurantes.size(); i++) {
-            lista += i + ". " + restaurantes.get(i).getNombre() + "\n";
+        String lista = "Elige la comida a editar:\n";
+        for (int i = 0; i < comidas.size(); i++) {
+            lista += i + ". " + comidas.get(i).getNombre() + "\n";
         }
         
         String numeroTexto = JOptionPane.showInputDialog(lista + "\nEscribe el numero:");
         int numero = Validaciones.textoANumero(numeroTexto);
-        
-        if (numero == -1 || numero < 0 || numero >= restaurantes.size()) {
+
+        if (numero == -1 || numero < 0 || numero >= comidas.size()) {
             Validaciones.error("Numero no valido");
             return;
         }
 
-        Restaurante restauranteEditar = restaurantes.get(numero);
+        Comida comidaEditar = comidas.get(numero);
         
-        String nuevoNombre = JOptionPane.showInputDialog("Nuevo nombre:", restauranteEditar.getNombre());
+        String nuevoNombre = JOptionPane.showInputDialog("Nuevo nombre:", comidaEditar.getNombre());
         if (!Validaciones.textoVacio(nuevoNombre)) {
-            restauranteEditar.setNombre(nuevoNombre);
+            comidaEditar.setNombre(nuevoNombre);
         }
         
-        String nuevoCocina = JOptionPane.showInputDialog("Nuevo tipo de cocina:", restauranteEditar.getTipoCocina());
+        String nuevoCocina = JOptionPane.showInputDialog("Nuevo tipo de cocina:", comidaEditar.getTipoCocinado());
         if (!Validaciones.textoVacio(nuevoCocina)) {
-            restauranteEditar.setTipoCocina(nuevoCocina);
+            comidaEditar.setTipoCocinado(nuevoCocina);
         }
-        
-        String nuevaUbicacion = JOptionPane.showInputDialog("Nueva ubicacion:", restauranteEditar.getsitio());
-        if (!Validaciones.textoVacio(nuevaUbicacion)) {
-            restauranteEditar.setsitio(nuevaUbicacion);
+
+        String nuevoSabor = JOptionPane.showInputDialog("Nuevo sabor:", comidaEditar.getSabor());
+        if (!Validaciones.textoVacio(nuevoSabor)) {
+            comidaEditar.setSabor(nuevoSabor);
         }
-        
-        String nuevaPuntuacion = JOptionPane.showInputDialog("Nueva puntuacion (1-5):", restauranteEditar.getPuntuacion() + "");
+
+        String nuevaPuntuacion = JOptionPane.showInputDialog("Nueva puntuacion (1-5):", comidaEditar.getPuntuacion() + "");
         int puntuacion = Validaciones.textoANumero(nuevaPuntuacion);
         if (puntuacion != -1 && Validaciones.puntuacionCorrecta(puntuacion)) {
-            restauranteEditar.setPuntuacion(puntuacion);
+            comidaEditar.setPuntuacion(puntuacion);
         }
-        
-        Validaciones.mensaje("Restaurante editado correctamente!");
-    }
-    
 
-    public void eliminarRestaurante() {
-        if (restaurantes.size() == 0) {
-            Validaciones.mensaje("No hay restaurantes para eliminar");
+        Validaciones.mensaje("Comida editada correctamente");
+    }
+
+
+    public void eliminarComida() {
+        if (comidas.size() == 0) {
+            Validaciones.mensaje("No hay comidas para eliminar");
             return;
         }
-        
-    
-        String lista = "Elige el restaurante a eliminar:\n";
-        for (int i = 0; i < restaurantes.size(); i++) {
-            lista += i + ". " + restaurantes.get(i).getNombre() + "\n";
+
+        String lista = "Elige la comida a eliminar:\n";
+        for (int i = 0; i < comidas.size(); i++) {
+            lista += i + ". " + comidas.get(i).getNombre() + "\n";
         }
-        
+
         String numeroTexto = JOptionPane.showInputDialog(lista + "\nEscribe el numero:");
         int numero = Validaciones.textoANumero(numeroTexto);
-        
-        if (numero == -1 || numero < 0 || numero >= restaurantes.size()) {
+
+        if (numero == -1 || numero < 0 || numero >= comidas.size()) {
             Validaciones.error("Numero no valido");
             return;
         }
-        
-   
-        Restaurante restauranteEliminar = restaurantes.get(numero);
-        boolean confirmar = Validaciones.preguntarSiNo("¿Seguro que quieres eliminar " + restauranteEliminar.getNombre() + "?");
-        
+
+        Comida comidaEliminar = comidas.get(numero);
+        boolean confirmar = Validaciones.preguntarSiNo("¿Seguro que quieres eliminar " + comidaEliminar.getNombre() + "?");
+
         if (confirmar) {
-            restaurantes.remove(numero);
-            Validaciones.mensaje("Restaurante eliminado correctamente!");
+            comidas.remove(numero);
+            Validaciones.mensaje("Comida eliminada correctamente!");
         }
     }
     
     
     private void ordenarPorPuntuacion() {
-        for (int i = 0; i < restaurantes.size() - 1; i++) {
-            for (int j = 0; j < restaurantes.size() - 1 - i; j++) {
-                if (restaurantes.get(j).getPuntuacion() < restaurantes.get(j + 1).getPuntuacion()) {
-                    Restaurante temp = restaurantes.get(j);
-                    restaurantes.set(j, restaurantes.get(j + 1));
-                    restaurantes.set(j + 1, temp);
+        for (int i = 0; i < comidas.size() - 1; i++) {
+            for (int j = 0; j < comidas.size() - 1 - i; j++) {
+                if (comidas.get(j).getPuntuacion() < comidas.get(j + 1).getPuntuacion()) {
+                    Comida temp = comidas.get(j);
+                    comidas.set(j, comidas.get(j + 1));
+                    comidas.set(j + 1, temp);
                 }
             }
         }
