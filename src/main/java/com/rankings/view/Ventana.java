@@ -32,7 +32,7 @@ public class Ventana extends JFrame implements ActionListener {
     
    
     private void hacerBotones() {
-        JLabel titulo = new JLabel("MENU PRINCIPAL");
+        JLabel titulo = new JLabel("Menu Principal");
         titulo.setFont(new Font("Arial", Font.BOLD, 16));
         add(titulo);
         
@@ -58,16 +58,16 @@ public class Ventana extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botonAnadir) {
-            JOptionPane.showMessageDialog(this, "Elegiste: Añadir restaurante");
+            JOptionPane.showMessageDialog(this, "Elegiste: añadir restaurante");
         }
         else if (e.getSource() == botonEditar) {
-            JOptionPane.showMessageDialog(this, "Elegiste: Editar restaurante");
+            JOptionPane.showMessageDialog(this, "Elegiste: editar restaurante");
         }
         else if (e.getSource() == botonMostrar) {
-            JOptionPane.showMessageDialog(this, "Elegiste: Mostrar restaurantes");
+            JOptionPane.showMessageDialog(this, "Elegiste: mostrar restaurantes");
         }
         else if (e.getSource() == botonEliminar) {
-            JOptionPane.showMessageDialog(this, "Elegiste: Eliminar restaurante");
+            JOptionPane.showMessageDialog(this, "Elegiste: eliminar restaurante");
         }
         else if (e.getSource() == botonSalir) {
             int respuesta = JOptionPane.showConfirmDialog(this, 
