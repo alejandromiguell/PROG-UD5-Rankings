@@ -8,12 +8,12 @@ import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
 
-public class ControladorRestaurantes {
+public class ControladorComidas {
 
     private ArrayList<Comida> comidas;
-    
-  
-    public ControladorRestaurantes() {
+
+
+    public ControladorComidas() {
         comidas = new ArrayList<Comida>();
     }
 
@@ -71,7 +71,7 @@ public class ControladorRestaurantes {
     
         ordenarPorPuntuacion();
 
-        String mensaje = "=== RANKING DE COMIDAS ===\n\n";
+        String mensaje = " RANKING DE COMIDAS \n\n";
         for (int i = 0; i < comidas.size(); i++) {
             mensaje += (i + 1) + ". " + comidas.get(i).toString() + "\n";
         }
