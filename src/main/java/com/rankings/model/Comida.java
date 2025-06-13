@@ -1,3 +1,5 @@
+//Este es un modelo de Comida que representa un plato de comida con sus atributos y métodos.
+
 package main.java.com.rankings.model;
 public class Comida {
     
