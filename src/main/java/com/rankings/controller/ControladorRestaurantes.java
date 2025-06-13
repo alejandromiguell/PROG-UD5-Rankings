@@ -106,14 +106,14 @@ public class ControladorRestaurantes {
             comidaEditar.setNombre(nuevoNombre);
         }
         
-        String nuevoCocina = JOptionPane.showInputDialog("Nuevo tipo de cocina:", comidaEditar.getTipoCocinado());
+        String nuevoCocina = JOptionPane.showInputDialog("Nuevo tipo de cocina:", comidaEditar.gettipoCocinado());
         if (!Validaciones.textoVacio(nuevoCocina)) {
-            comidaEditar.setTipoCocinado(nuevoCocina);
+            comidaEditar.settipoCocinado(nuevoCocina);
         }
 
-        String nuevoSabor = JOptionPane.showInputDialog("Nuevo sabor:", comidaEditar.getSabor());
+        String nuevoSabor = JOptionPane.showInputDialog("Nuevo sabor:", comidaEditar.getsabor());
         if (!Validaciones.textoVacio(nuevoSabor)) {
-            comidaEditar.setSabor(nuevoSabor);
+            comidaEditar.setsabor(nuevoSabor);
         }
 
         String nuevaPuntuacion = JOptionPane.showInputDialog("Nueva puntuacion (1-5):", comidaEditar.getPuntuacion() + "");
