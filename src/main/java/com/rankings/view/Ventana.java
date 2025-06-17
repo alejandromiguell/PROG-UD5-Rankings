@@ -1,6 +1,9 @@
 package  main.java.com.rankings.view;
 
 import javax.swing.*;
+
+import main.java.com.rankings.controller.ControladorComidas;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,9 +17,11 @@ public class Ventana extends JFrame implements ActionListener {
     private JButton botonMostrar;
     private JButton botonEliminar;
     private JButton botonSalir;
-    
+    private ControladorComidas controlador;
+
     // Constructor
     public Ventana() {
+        controlador = new ControladorComidas();
         hacerVentana();
         hacerBotones();
     }
@@ -58,15 +63,19 @@ public class Ventana extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botonAnadir) {
+            controlador.anadirComida();
             JOptionPane.showMessageDialog(this, "Elegiste: añadir comida");
         }
         else if (e.getSource() == botonEditar) {
+            controlador.editarComida();
             JOptionPane.showMessageDialog(this, "Elegiste: editar comida");
         }
         else if (e.getSource() == botonMostrar) {
+            controlador.mostrarComidas();
             JOptionPane.showMessageDialog(this, "Elegiste: mostrar comidas");
         }
         else if (e.getSource() == botonEliminar) {
+            controlador.eliminarComida();
             JOptionPane.showMessageDialog(this, "Elegiste: eliminar comida");
         }
         else if (e.getSource() == botonSalir) {
